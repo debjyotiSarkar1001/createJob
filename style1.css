@@ -1,0 +1,9 @@
+.required
+{
+    color:red;
+    content: "*";
+}
+body
+{
+    background-color: aqua;
+}
