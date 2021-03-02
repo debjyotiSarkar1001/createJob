@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Job Data</title>
+    <link rel="stylesheet" href="style1.css" />
+
+    <script>
+        function validateForm()
+        {
+           
+            if(document.value_entry.title.value == "")
+            {
+                alert("Title must be filled out");
+                document.value_entry.title.focus() ;
+                return false;
+            }
+
+         
+            if(document.value_entry.type.value == "")
+            {
+                alert("Type must be selected");
+                document.value_entry.type.focus() ;
+                return false;
+            }
+            
+            
+            if(document.value_entry.department.value == "")
+            {
+                alert("Department must be selected");
+                document.value_entry.department.focus() ;
+                return false;
+            }
+           
+            if(document.value_entry.country.value == "")
+            {
+                alert("Country must be selected");
+                document.value_entry.country.focus() ;
+                return false;
+            }   
+
+          
+            if(document.value_entry.description.value == "")
+            {
+                alert("Description must be filled");
+                document.value_entry.description.focus() ;
+                return false;
+            }   
+           
+            if(document.value_entry.openingdate.value == "")
+            {
+                alert("Opening Date must be selected");
+                document.value_entry.openingdate.focus() ;
+                return false;
+            }   
+            var date=document.getElementById('openingdate').value;
+            var inpdate=new Date(date);
+            var currdate=new Date();
+            if(inpdate.setHours(0,0,0,0)>currdate.setHours(0,0,0,0))
+            {
+                alert("The input date is greater than todays date");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</head>
+<body>
+    <h1><center>ENTER JOB DATA</center></h1>
+  
+    <form name="value_entry" action="/submitstatus.html" onsubmit="return(validateForm());" method="GET">
+        <center>
+    </br></br>
+
+    <label class="control-label" for="title">Title</label><span class="required">*</span><br>
+    <input type="text" id="title" name="data[title]" class="form-control">
+    
+</br></br>
+
+        <label class="control-label" for="type">Type</label><span class="required">*</span><br>
+    <select id="type" name="type">
+        <option value=""></option>
+        <option value="Work From Home">Work From Home</option>
+        <option value="Work From Office">Work From Office</option>
+    </select>
+
+</br></br>
+    
+<label class="control-label" for="department">Department</label><span class="required">*</span><br>
+    <select id="department" name="department">
+        <option value=""></option>
+        <option value="Java Academy Training">Java Academy Training</option>
+        <option value="Dotnet Academy Training">Dotnet Academy Training</option>
+    </select>
+
+</br></br>
+    
+<label class="control-label" for="country" class="control-label">Country</label><span class="required">*</span><br>
+    <select id="country" name="country">
+        <option value=""></option>
+        <option value="India">India</option>
+        <option value="United States of America">United States of America</option>
+        <option value="United Kingdom">United States of America</option>
+        <option value="Canada">Canada</option>
+        <option value="Australia">Australia</option>
+    </select>
+
+</br>
+</br>
+
+    <label class="control-label" for="description">Description</label><span class="required">*</span><br>
+    <textarea id="description" name="description"></textarea>
+
+</br>
+</br>
+
+    <label class="control-label" for="openingdate">Opening Date</label><span class="required">*</span><br>
+    <input type="date" id="openingdate" name="openingdate">
+
+</br>
+</br>
+
+<input type="Submit">
+</center>
+</form>
+
+</body>
+</html>
